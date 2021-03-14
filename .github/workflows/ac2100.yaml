@@ -1,4 +1,4 @@
-name: Build Openwrt for NanoPi R2S
+name: Build Openwrt for Xiaomi AC2100
 
 on:
   repository_dispatch:
