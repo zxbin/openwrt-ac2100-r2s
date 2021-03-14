@@ -1,4 +1,4 @@
-# NanoPi-R2S 每天自动更新插件和内核版本
+# Openwrt
 
 +ssrplus
 
