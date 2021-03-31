@@ -48,6 +48,7 @@ jobs:
         cd openwrt
         echo "OPENWRTROOT=$PWD" >> $GITHUB_ENV
         ./scripts/feeds update -a && ./scripts/feeds install -a
+        cat ../$CONFIG_FILE > .config
         sed -i 's/192.168.1.1/192.168.5.1/g' package/base-files/files/bin/config_generate
         pushd package/lean
         git clone --depth=1 https://github.com/fw876/helloworld
@@ -159,7 +160,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: ${{ steps.tag.outputs.release_date }} Lean OpenWrt
+          name: ${{ steps.tag.outputs.release_date }} OpenWrt
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
           files: ${{ env.FIRMWARE }}/*
